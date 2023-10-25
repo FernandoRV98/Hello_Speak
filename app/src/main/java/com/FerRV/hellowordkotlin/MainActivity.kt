@@ -1,3 +1,6 @@
+
+
+
 package com.FerRV.hellowordkotlin
 
 import androidx.appcompat.app.AppCompatActivity
@@ -14,7 +17,7 @@ class MainActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
 
     // --------------------------------
     // Variables globales
-    var tts: TextToSpeech? = null // Variable para el TextToSpeech
+    private var tts: TextToSpeech? = null // Variable para el TextToSpeech
     // TextToSpeech: Clase que permite convertir texto a voz
         // ? = null: Permite que la variable pueda ser nula
 
@@ -52,17 +55,16 @@ class MainActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
         // busca y asigna a la variable messageS el texto del EditText
         // y lo enviamos a la función speak()
         findViewById<Button>(R.id.btnSpeak).setOnClickListener {
-            var messageS: String = findViewById<TextView>(R.id.etMessage).text.toString()
+            val messageS: String = findViewById<TextView>(R.id.etMessage).text.toString()
             speak(messageS)
         }
-
     }
 
     // --------------------------------
     // Función que se ejecuta al presionar el botón y hablar
     private fun speak (message: String){
         // message: Texto a convertir a voz en caso de que el EditText este vacio
-        var errM: String = "You need to enter a message"
+        val errM: String = "You need to enter a message"
         // Verificamos que message no este vacio
         if (message.isEmpty()){
             // isEmpty(): Método que verifica si la variable esta vacia
@@ -79,7 +81,6 @@ class MainActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
             // null: Parámetro que indica que no se requiere un parámetro adicional
             // "": Parámetro que indica que no se requiere un parámetro adicional
     }
-
 
 
     // --------------------------------
@@ -104,19 +105,18 @@ class MainActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
             // Mensaje de éxito con Toast por 3 segundos
             Toast.makeText(this, "Se puede hablar", Toast.LENGTH_LONG).show()
             // Selección de idioma
-            tts!!.setLanguage(Locale.UK) // Establecemos el idioma a inglés (UK)
+            tts!!.language = Locale.UK // Establecemos el idioma a inglés (UK)
         } else {
             // Deshabilitamos el botón
             findViewById<TextView>(R.id.btnSpeak).isEnabled = false
             // Mensajde de error con Toast por 3 segundos
             Toast.makeText(this, "No se puede hablar", Toast.LENGTH_LONG).show()
-            // Toast.makeText(this, "No se puede hablar", Toast.LENGTH_LONG).show(): Método que muestra un mensaje
+            // Toast.makeText(this, "No se puede hablar", Toast.LENGTH_LONG).show():
+            // Método que muestra un mensaje
                 // this: Contexto de la aplicación
                 // "No se puede hablar": Mensaje a mostrar
                 // Toast.LENGTH_LONG: Duración del mensaje
                 // show(): Método que muestra el mensaje
         }
-
     }
-
 }

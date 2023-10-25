@@ -11,7 +11,7 @@
         android:id="@+id/titulo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Write and Speak"
+        android:text="@string/title_write_and_speak"
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -24,19 +24,21 @@
         android:layout_width="299dp"
         android:layout_height="63dp"
         android:gravity="center"
-        android:hint="Write a message"
+        android:hint="@string/back_editT"
+        android:inputType="text"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.468" />
+        app:layout_constraintVertical_bias="0.468"
+        android:autofillHints="" />
 
     <Button
         android:id="@+id/btnSpeak"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Speak"
+        android:text="@string/btn_speak"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintLeft_toLeftOf="parent"
